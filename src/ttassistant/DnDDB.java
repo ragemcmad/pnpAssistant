@@ -9,13 +9,14 @@ import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+import JTrigger.FilePaths;
+
 
 @SuppressWarnings("serial")
 public class DnDDB implements Serializable{
 	protected ArrayList<party> partylist;
 	//ArrayList<spieler> playerlist;
-	private String path = "C:\\Users\\Olli\\Dropbox\\DnD\\party.s";
-	
+	private String path = FilePaths.standardparty;
 	public DnDDB(){
 		System.out.println("DB: Pfad gesetzt zu \"" +path+"\"");
 		deserialisieren();
@@ -46,6 +47,9 @@ public class DnDDB implements Serializable{
 			System.out.println("GameDB: geladen");
 		} catch (Exception e){
 			e.printStackTrace();
+			System.out.println("GameDB: Fail2Load -> reinit");
+			this.partylist = new ArrayList<party>();
+			this.serialisieren();
 		} 
 	
 	}

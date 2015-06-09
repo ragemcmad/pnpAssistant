@@ -8,9 +8,11 @@ import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.Vector;
 
+import JTrigger.FilePaths;
+
 public class MonsterList implements Serializable{
 	private static final long serialVersionUID = 2096160540512796730L;
-	private String path = "C:\\Users\\Olli\\Dropbox\\DnD\\monsters.s";
+	private String path = FilePaths.monsterDB;
 	public Vector<Monster> mlist;
 	
 	public MonsterList(){
